@@ -3,7 +3,7 @@ services:
     name: game-catalog
     env: python
     buildCommand: chmod +x build.sh && ./build.sh
-    startCommand: gunicorn djangoApp.wsgi:application
+    startCommand: cd djangoApp/gameCatalog && gunicorn gameCatalog.wsgi:application
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.0
@@ -11,4 +11,6 @@ services:
         value: False
       - key: SECRET_KEY
         generateValue: true
+
+
 
