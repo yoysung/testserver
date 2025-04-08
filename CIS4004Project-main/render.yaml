@@ -2,6 +2,7 @@ services:
   - type: web
     name: game-catalog
     env: python
+    buildCommand: pip install --upgrade pip
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
     startCommand: gunicorn djangoApp.wsgi:application
     envVars:
